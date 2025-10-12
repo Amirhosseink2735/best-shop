@@ -28,8 +28,7 @@ class ProductDetails(View):
         product_gallerys=ProductGallery.objects.filter(Q(product=product))
         features=ProductFeature.objects.filter(product=product)
         
-        
-        
+
         
         context={
             "product":product,

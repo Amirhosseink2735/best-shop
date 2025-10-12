@@ -1,3 +1,5 @@
+  
+{% load render_partial %}
   <header>
     <!-- top header -->
     <div class="flex justify-between bg-white shadow-lg px-4 md:px-8 lg:px-14 py-5 relative">
@@ -719,12 +721,21 @@
           </div>
         </div>
         <!-- login / register -->
+         {% if user.is_authenticated %}
+        <a href="{% url "accounts:logout_user" %}"  class="open-modal absolute md:static top-3.5 left-3 md:flex bg-gradient-to-bl from-primary-500 to-primary-400 hover:opacity-90 hover:shadow-lg transition rounded-xl p-2.5 items-center gap-x-2 text-sm text-white">
+          <p class="hidden lg:block">
+            خروج
+          </p>
+          <img src="{{media_url}}image/icons/user.svg" alt="">
+        </a>
+         {% else %}
         <a href="#" data-modal="modal1" class="open-modal absolute md:static top-3.5 left-3 md:flex bg-gradient-to-bl from-primary-500 to-primary-400 hover:opacity-90 hover:shadow-lg transition rounded-xl p-2.5 items-center gap-x-2 text-sm text-white">
           <p class="hidden lg:block">
             ورود | ثبت نام
           </p>
           <img src="{{media_url}}image/icons/user.svg" alt="">
         </a>
+        {% endif %}
       </div>
     </div>
     <!-- modal login -->
@@ -758,17 +769,15 @@
           <p class="text-sm text-zinc-500 mt-8">
             کد 6 رقمی ارسال شده را وارد کنید:
           </p>
+          <form method='post' action="{% url "accounts:get_active_code" %}">
+            {% csrf_token %}
           <div class="input-field mb-5 flex flex-row-reverse gap-x-4 justify-center mt-2">
-            <input name="code" class="code-input 213 border-2 border-zinc-400 focus:border-primary-400 transition w-10 h-12 rounded-md outline-none text-center focus:outline-0 focus:shadow-lg text-zinc-700" required/>
-            <input name="code" class="code-input border-2 border-zinc-400 focus:border-primary-400 transition w-10 h-12 rounded-md outline-none text-center focus:outline-0 focus:shadow-lg text-zinc-700" required/>
-            <input name="code" class="code-input border-2 border-zinc-400 focus:border-primary-400 transition w-10 h-12 rounded-md outline-none text-center focus:outline-0 focus:shadow-lg text-zinc-700" required/>
-            <input name="code" class="code-input border-2 border-zinc-400 focus:border-primary-400 transition w-10 h-12 rounded-md outline-none text-center focus:outline-0 focus:shadow-lg text-zinc-700" required/>
-            <input name="code" class="code-input border-2 border-zinc-400 focus:border-primary-400 transition w-10 h-12 rounded-md outline-none text-center focus:outline-0 focus:shadow-lg text-zinc-700" required/>
-            <input name="code" class="code-input border-2 border-zinc-400 focus:border-primary-400 transition w-10 h-12 rounded-md outline-none text-center focus:outline-0 focus:shadow-lg text-zinc-700" required/>
+            <input type="text" name="activecode" placeholder="کد فعالسازی را وارد کنید " class="rounded-xl text-zinc-600 bg-[#f0f0f0] pl-10 pr-4 py-2.5 w-full placeholder:text-zinc-400 placeholder:text-sm focus:outline-0" >
           </div>
-          <a onclick="get_code()" href="#" class="text-center w-1/2 mx-auto mt-7 bg-gradient-to-bl from-primary-500 to-primary-400 hover:opacity-90 hover:shadow-lg transition rounded-2xl px-2.5 py-3 flex justify-center items-center gap-x-2 text-sm text-white">
+          <button tppe='submit' class="text-center w-1/2 mx-auto mt-7 bg-gradient-to-bl from-primary-500 to-primary-400 hover:opacity-90 hover:shadow-lg transition rounded-2xl px-2.5 py-3 flex justify-center items-center gap-x-2 text-sm text-white">
             ورود
-          </a>
+          </button>
+          </form>
         </div> 
       </div>
     </div>
