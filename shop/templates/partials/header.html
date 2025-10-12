@@ -10,7 +10,7 @@
         <div id="mobile-menu" class="z-20 fixed top-0 right-0 w-10/12 h-full bg-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out">
           <div class="p-5 flex flex-col gap-y-3 justify-center items-center">
             <!-- logo -->
-            <a href="/">
+            <a href="{% url "main:index" %}">
               <img src="{{media_url}}image/logo.png" class="max-w-24 md:max-w-32 h-fit" alt="">
             </a>
             <!-- seacrh -->
@@ -252,7 +252,7 @@
           </div>
         </div>
         <!-- logo -->
-        <a href="/">
+        <a href="{% url "main:index" %}">
           <img src="{{media_url}}image/logo.png" class="max-w-24 md:max-w-32 h-fit" alt="">
         </a>
         <!-- empty -->

@@ -65,6 +65,10 @@ class Product(models.Model):
     published_date=models.DateTimeField(auto_now=True,verbose_name="تارخ اخرین بروزرسانی")
     features=models.ManyToManyField(Feature,through="productFeature")
     update_date=models.DateTimeField(auto_now=True,verbose_name="تاریخ اخرین بروز رسانی ")
+    warranty=models.PositiveIntegerField(blank=True,null=True,verbose_name="مدت گارانتی : ")
+    
+    def get_absolute_url(self):
+        return reverse("products:product_details", kwargs={"slug": self.slug})
     
 
     
