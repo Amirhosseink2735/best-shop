@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "apps.main.apps.MainConfig",
+    'django_render_partial',
+    "django.contrib.humanize",
     "apps.accounts.apps.AccountsConfig",
     "apps.products.apps.ProductsConfig",
 ]
