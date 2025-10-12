@@ -11,6 +11,55 @@
   <link rel="stylesheet" href="{% static "assets/css/main.css" %}">
 
   <title>{% block title %}{% endblock title %}</title>
+  <!-- از CDN رسمی jQuery -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <script>
+function get_mobile_number() {
+            var mobile_number=$("#mobile_number").val();
+            $.ajax({
+            type:"GET",
+            url:"/accounts/mobile_number1/",
+            data:{
+              mobile_number:mobile_number,
+            },
+            success: function(res) {
+             alert(res)
+              
+                
+
+            },
+    });
+    }
+    
+
+  </script>
+
+
+<script>
+function get_code() {
+
+  var code = "";
+  $(".code-input").each(function() {
+    code += $(this).val().trim();
+  });
+
+  $.ajax({
+    type: "GET",
+    url: "/accounts/get_active_code/", 
+    data: {
+      code: code
+    },
+    success: function(res) {
+      alert(res); 
+    }
+  });
+}
+</script>
+
+
+
+
 </head>
 
 <body class="max-w-[1700px] mx-auto">

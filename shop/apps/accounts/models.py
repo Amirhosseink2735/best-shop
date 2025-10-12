@@ -8,13 +8,13 @@ from utils import FileUpload
 class CustomUserManager(BaseUserManager):
     
 
-    def create_user(self, mobile_number,password, name=None, email=None,family=None):
+    def create_user(self, mobile_number,active_code,password=None, name='', email='',family=''):
         user=self.model(
             name=name,
             mobile_number=mobile_number,
             email=self.normalize_email(email),
             family=family,
-            
+            active_code=active_code,
         )
         user.set_password(password)
         user.is_active=True
