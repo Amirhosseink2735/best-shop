@@ -48,7 +48,7 @@ class Feature(models.Model):
     class Meta:
         verbose_name="ویزگی"
         verbose_name_plural="ویزگی ها"
-from django.utils import timezone  
+
     
 class Product(models.Model):
     product_name=models.CharField(max_length=500,verbose_name="نام کالا")

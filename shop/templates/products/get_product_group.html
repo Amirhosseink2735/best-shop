@@ -4,7 +4,7 @@
           <div class="card-wrapper swiper-wrapper pb-10">
             {% for product_group in product_groups %}
             <div class="card swiper-slide">
-              <a href="#" class="flex justify-between items-center shiny w-full border border-zinc-100 rounded-2xl hover:shadow-lg transition py-3 px-5">
+              <a href="{% url "products:show_products_in_groups" slug=product_group.slug %}" class="flex justify-between items-center shiny w-full border border-zinc-100 rounded-2xl hover:shadow-lg transition py-3 px-5">
                 <p class="text-xs md:text-sm text-zinc-700">
                     {{product_group.group_title}}
                 </p>

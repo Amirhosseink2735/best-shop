@@ -37,6 +37,42 @@ class ProductDetails(View):
         }        
         return render(request,"products/productdetails.html",context)
 
+#-----------------------------------------------------------
+#برای مشاهده همه محصولات ارزان 
+
+class Show_AllProduct(View):
+    def get(self,request,*args, **kwargs):
+        products=Product.objects.filter(Q(is_active=True)).order_by('price')
+        
+        return render(request,"products/all_products.html",{"products":products})
+
+#-----------------------------------------------------------
+#برای محصولات یه گروه خاص
+
+class Show_products_in_groups(View):
+    def get(self,request,slug):
+        product_group=get_object_or_404(ProductGroup,slug=slug)
+        products=Product.objects.filter(Q(is_active=True) & Q(product_group=product_group)).order_by("price")[:10]
+        context={
+            "product_group":product_group,
+            "products":products
+        }
+                
+        return render(request,"products/show_products_in_groups.html",context)
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+
 
 
 
