@@ -10,7 +10,7 @@ class Brand(models.Model):
     file_upload=FileUpload("images","brand")
     image_name=models.ImageField(upload_to=file_upload.upload_to,verbose_name="تصویر کالا")
     slug=models.SlugField(max_length=200,null=True)
-    
+    is_active=models.BooleanField(default=True,blank=True,verbose_name="وضعیت فعال/غیر فعال",null=True)
     def __str__(self):
         return self.brand_title
     

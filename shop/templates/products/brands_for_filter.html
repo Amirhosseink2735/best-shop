@@ -1,0 +1,20 @@
+          <div class="border border-zinc-100 h-fit rounded-2xl py-2 hover:shadow-sm transition-all">
+            <button type="button" class="menu-toggle flex justify-between w-full py-3 px-4 rounded-2xl cursor-pointer">
+              <span class="text-zinc-700 text-sm">برند ها</span>
+              <img class="w-4 transition-transform opacity-80" src="{{media_url}}image/icons/arrowDown.svg" alt="">
+            </button>
+            <ul class="submenu hidden mt-2">
+                {% for brand in brands %}
+              <li>
+                <div class="flex w-full items-center gap-x-2 py-1 px-4">
+                  <input id="c1_{{brand.id}}" type="checkbox" name="brands"  value="{{brand.id}}" class="h-4 w-4 accent-primary-500 cursor-pointer rounded-xl border-gray-300 bg-gray-100">
+                  <label for="c1" class="w-full cursor-pointer py-2 pl-4 text-zinc-600 text-xs">
+                    <span>
+                      {{brand.brand_title}}
+                    </span>
+                  </label>
+                </div>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>

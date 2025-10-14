@@ -1,0 +1,17 @@
+        <div class="border border-zinc-100 h-fit rounded-2xl py-2 hover:shadow-sm transition-all">
+            <button type="button" class="menu-toggle flex justify-between w-full py-3 px-4 rounded-2xl cursor-pointer">
+              <span class="text-zinc-700 text-sm">دسته بندی</span>
+              <img class="w-4 transition-transform opacity-80" src="{{media_url}}image/icons/arrowDown.svg" alt="">
+            </button>
+            <ul class="submenu hidden mt-2">
+              {% for product_group in product_groups %}
+                <li>
+                
+                <button class="menu-toggle text-xs flex justify-between w-full py-2 px-4 text-zinc-700">
+                  <a href="{% url "products:show_products_in_groups" slug=product_group.slug %}">{{product_group.group_title}}</a>
+                </button>
+              </li>
+              {% endfor %}
+           
+            </ul>
+          </div>
