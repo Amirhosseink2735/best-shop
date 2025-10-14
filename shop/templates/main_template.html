@@ -13,8 +13,26 @@
   <title>{% block title %}{% endblock title %}</title>
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+function add_to_shop_cart(product_id,qty) {
+            
+            $.ajax({
+            type:"GET",
+            url:"/ord/add_shopcart/",
+            data:{
+              product_id:product_id,
+              qty:qty
+            },
+            success: function(res) {
+             alert(res)
 
-  <script>
+            },
+    });
+    }
+    
+
+</script>
+<script>
 function get_mobile_number() {
             var mobile_number=$("#mobile_number").val();
             $.ajax({
@@ -33,7 +51,7 @@ function get_mobile_number() {
     }
     
 
-  </script>
+</script>
 
 
 <script>

@@ -605,10 +605,12 @@
       <div class="flex gap-x-5">
         <!-- cart -->
         <div class="absolute top-3 left-16 md:top-0 md:left-0 md:relative group cursor-pointer border-2 border-primary-500 hover:shadow-lg hover:bg-zinc-200 transition rounded-xl p-2.5">
+          <a href="{% url "ord:show_shopcart" %}">
           <img src="{{media_url}}image/icons/cart.svg" alt="">
           <span class="absolute -right-2 -top-2 flex size-6 drop-shadow-lg items-center justify-center rounded-full bg-white text-sm font-semibold text-primary-500">
             3
           </span>
+          </a>
           <div class="z-50 hidden group-hover:block absolute -left-16 sm:left-0 top-11 w-96 md:w-[400px] rounded-2xl border border-zinc-300 bg-white shadow-lg">
             <!-- Items -->
             <!-- <div class="text-zinc-600 text-center py-10 font-yekanBakhRegular flex justify-center items-center gap-x-1">
