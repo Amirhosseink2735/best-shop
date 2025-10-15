@@ -10,6 +10,19 @@ from apps.products.models import Product
 class Show_Shopcart(View):
     def get(self,request):
         shop_cart=shopcart(request)
+        clc_total_price=shop_cart.clc_total_price()
+        tax=0.09*clc_total_price
+        dlivery=70000
+        if clc_total_price>500000:
+            dlivery=0
+  
+        
+        context={
+            "shop_carts":shop_cart,
+            "clc_total_price":clc_total_price,
+            "tax":tax,
+            "dlivery":dlivery
+        }
 
         
         return render(request,"orders/show_shopcart.html")
@@ -19,18 +32,21 @@ class Show_Shopcart(View):
 
 def show_shop_cart_tabel(request):
     shop_cart=shopcart(request)
+    shop_cart=shopcart(request)
     clc_total_price=shop_cart.clc_total_price()
-    tax=0.09*clc_total_price
+    tax=0.009*clc_total_price
     dlivery=70000
     if clc_total_price>500000:
         dlivery=0
+    t_price=tax+dlivery+clc_total_price
   
         
     context={
             "shop_carts":shop_cart,
             "clc_total_price":clc_total_price,
             "tax":tax,
-            "dlivery":dlivery
+            "dlivery":dlivery,
+            "t_price":t_price,
         }
 
     return render(request,"orders/shop_cart_tabel.html",context)
