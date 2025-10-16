@@ -5,9 +5,9 @@ from django.db.models import Q
 from .shop_cart import shopcart
 from apps.products.models import Product
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Order,OrderDetails,City,State
+from .models import Order,OrderDetails,State
 from apps.accounts.models import Customer
-
+from .forms import CheckOutForm
 
 #----------------------------------------------------------------
 #کلاس برای نمایش سبد خرید 
@@ -99,8 +99,9 @@ class CheckOut(LoginRequiredMixin,View):
 
         t_price=tax+dlivery+clc_total_price
     
-        citys=City.objects.filter(Q(is_active=True))
+        states=State.objects.filter(Q(is_active=True))
         
+        form=CheckOutForm()
         
         context={
             "shop_carts":shop_cart,
@@ -108,13 +109,16 @@ class CheckOut(LoginRequiredMixin,View):
             "tax":tax,
             "dlivery":dlivery,
             "t_price":t_price,
-            "citys":citys,
+            "form":form,
+            "states":states,
         }
 
         
 
         
         return render(request,"orders/checkout.html",context)
+    
+
 
 
 #-----------------------------------------------------------------------------

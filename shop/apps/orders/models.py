@@ -30,22 +30,7 @@ class State(models.Model):
         verbose_name="استان "
         verbose_name_plural="استان ها"
                 
-        
-
-#----------------------------------------------------------------
-class City(models.Model):
-    city_name=models.CharField(verbose_name="شهر های قابل ارسال",max_length=50)
-    is_active=models.BooleanField(default=True,blank=True,verbose_name="وضعیت فعال/غیر فعال")
-    state=models.ForeignKey(State,on_delete=models.CASCADE,verbose_name="استان شهر",related_name="state_city",null=True,blank=True)
     
-    class Meta:
-        verbose_name="شهرو استان "
-        verbose_name_plural="شهر ها "
-        
-    def __str__(self):
-        return f"{self.city_name}"
-
-
 
 #----------------------------------------------------------------
 
@@ -59,7 +44,7 @@ class Order(models.Model):
     discount=models.IntegerField(blank=True,null=True,default=0,verbose_name="تخفیف روی فاکتور")
     description=models.TextField(blank=True,null=True,verbose_name="توضیحات")
     payment_type=models.ForeignKey(PaymentType,on_delete=models.CASCADE,default=None,null=True,blank=True,related_name="payment_types",verbose_name="نوع پرداخت")
-    order_city=models.ForeignKey(City,on_delete=models.CASCADE,related_name="order_city",null=True,blank=True,verbose_name="شهر محل ارسال سفارش")
+    state=models.ForeignKey(State,on_delete=models.CASCADE,verbose_name="استان",related_name="order_state",null=True,blank=True)
     codeposti=models.CharField(verbose_name="کدپستی",max_length=40,null=True,blank=True)
     def __str__(self):
         return f"{self.customer}\t{self.id}\t{self.is_finaly}"
