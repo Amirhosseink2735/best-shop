@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "apps.products.apps.ProductsConfig",
     "apps.orders.apps.OrdersConfig",
     "apps.discounts.apps.DiscountsConfig",
+    "apps.favorite.apps.FavoriteConfig",
 ]
 
 MIDDLEWARE = [
@@ -54,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "middlewares.middlewares.RequestMiddleware",
 ]
 
 ROOT_URLCONF = 'shop.urls'
