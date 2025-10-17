@@ -1,13 +1,7 @@
 from django.contrib import admin
-from .models import Coupon,DiscountBasket,DiscountBasketDetails
+from .models import DiscountBasket,DiscountBasketDetails
 
-@admin.register(Coupon)
 
-class CouponsAdmin(admin.ModelAdmin):
-    list_display=("coupon_code","start_date","end_date","discount","is_active")
-    ordering=("is_active",)
-    
-    
     
     
 class DiscountBasketDetailsAdmin(admin.TabularInline):
