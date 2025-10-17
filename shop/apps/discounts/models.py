@@ -3,7 +3,7 @@ from django.db import models
 from django.core.validators import MinValueValidator,MaxValueValidator
 from apps.products.models import Product
 
-
+#-----------------------------------------------------------------------------------
     
 class DiscountBasket(models.Model):
     discount_title=models.CharField(max_length=100,verbose_name="عنوان سبد تخفیف")
@@ -20,10 +20,14 @@ class DiscountBasket(models.Model):
 
     def __str__(self):
         return self.discount_title
+     
+#-----------------------------------------------------------------------------------
         
     
 class DiscountBasketDetails(models.Model):
     discount_basket=models.ForeignKey(DiscountBasket,on_delete=models.CASCADE,verbose_name="سبد تخفیف",related_name="discount_basket_details1")
     product=models.ForeignKey(Product,on_delete=models.CASCADE,verbose_name="کالا",related_name="discount_basket_details2")
 
+
+#-----------------------------------------------------------------------------------
 

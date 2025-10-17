@@ -19,7 +19,7 @@ class shopcart:
             current_qty = 0
 
         if product_id not in self.shop_cart:
-            self.shop_cart[product_id] = {"price": product.price, "qty": 0}
+            self.shop_cart[product_id] = {"price": product.price, "qty": 0,"final_price":product.get_price_by_discounts()}
 
         self.shop_cart[product_id]["qty"] = current_qty + int(qty)
         self.count = len(self.shop_cart.keys())
@@ -40,7 +40,7 @@ class shopcart:
         for product in products:
             temp[str(product.id)]["product"]=product
         for item in temp.values():
-            item["total_price"]=int(item["price"])*int(item["qty"])
+            item["total_price"]=int(item["final_price"])*int(item["qty"])
             yield item
 
     
@@ -48,7 +48,7 @@ class shopcart:
     def clc_total_price(self):
         sum=0
         for item in self.shop_cart.values():
-            sum+=int(item["price"])*int(item["qty"])
+            sum+=int(item["final_price"])*int(item["qty"])
         return sum
         
 

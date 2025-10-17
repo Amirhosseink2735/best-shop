@@ -92,7 +92,7 @@ class CheckOut(LoginRequiredMixin,View):
                 price=item["price"]
             )
         clc_total_price=shop_cart.clc_total_price()
-        tax=0.09*clc_total_price
+        tax=0.009*clc_total_price
         dlivery=70000
         if clc_total_price>500000:
             dlivery=0

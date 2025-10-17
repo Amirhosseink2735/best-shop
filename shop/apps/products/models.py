@@ -79,6 +79,29 @@ class Product(models.Model):
         verbose_name="کالا"
         verbose_name_plural="کالاها"
         
+        
+        
+        
+    def get_price_by_discounts(self):
+        l1=[]
+        for item in self.discount_basket_details2.all():
+            if(
+                item.discount_basket.is_active==True and
+                item.discount_basket.start_date <= timezone.now() and
+                item.discount_basket.end_date >= timezone.now() 
+            ):
+                l1.append(item.discount_basket.discount)
+        discount=0
+        if len(l1) >0:
+            discount=max(l1)
+            
+        d_price=self.price-(self.price*discount/100)
+
+        return d_price
+            
+        
+            
+        
 
         
         

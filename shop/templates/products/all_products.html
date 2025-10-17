@@ -99,10 +99,18 @@
               </svg>
             </a>
             <div class="flex">
+              {% if product.get_price_by_discounts < product.price %}
+              <div class="text-base md:text-xl">{{product.get_price_by_discounts|intcomma}}</div>
+              <del style="color:red;"><div class="text-base md:text-xl">{{product.price|intcomma}}</div></del>
+              <div class="-rotate-90 text-zinc-400 text-xs md:text-sm">
+                تومان
+              </div>
+              {% else %}
               <div class="text-base md:text-xl">{{product.price|intcomma}}</div>
               <div class="-rotate-90 text-zinc-400 text-xs md:text-sm">
                 تومان
               </div>
+              {% endif %}
             </div>
           </div>
         </div>
