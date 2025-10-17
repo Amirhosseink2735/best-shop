@@ -40,6 +40,9 @@ function delete_from_shop_cart(product_id) {
 </script>
 <script>
 function add_to_shop_cart(product_id,qty) {
+            if(qty===0){
+                 qty=$("#product_input").val();
+              }
             
             $.ajax({
             type:"GET",

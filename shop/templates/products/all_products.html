@@ -82,7 +82,7 @@
           <div
             class="border-b-2 border-dashed border-zinc-200 my-5 w-full h-auto"></div>
           <div class="flex justify-between items-center">
-            <a href
+            <a href="#" onclick="add_to_shop_cart({{product.id}},1)"
               class="group/edit bg-primary-500 hover:bg-primary-400 px-3 md:px-2.5 py-2.5 rounded-xl shadow-lg transition-all">
               <svg class="stroke-white" width="24" height="24"
                 viewBox="0 0 24 24" fill="none"
@@ -141,7 +141,7 @@
       class="border border-zinc-100 text-sm md:text-base px-3.5 md:px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-white rounded-md hover:bg-primary-500 hover:text-white">
       10
     </a>
-    <a href="#"
+    <a href="{% url "ord:show_shopcart" %}"
       class="flex items-center justify-center px-3.5 md:px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-white rounded-md -scale-x-100 hover:bg-primary-500 hover:text-white">
       <svg xmlns="http://www.w3.org/2000/svg" class="size-4 md:size-5"
         viewBox="0 0 20 20" fill="currentColor">

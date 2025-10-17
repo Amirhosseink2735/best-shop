@@ -77,12 +77,19 @@ class Show_products_in_groups(View):
     def get(self,request,slug):
         product_group=get_object_or_404(ProductGroup,slug=slug)
         products=Product.objects.filter(Q(is_active=True) & Q(product_group=product_group)).order_by("price")[:10]
+
+
         context={
             "product_group":product_group,
             "products":products
         }
                 
         return render(request,"products/show_products_in_groups.html",context)
+    
+    
+    
+    
+    
 #----------------------------------------------------------------------------------
 
 #تابع برای محصولات جدید 
@@ -139,8 +146,27 @@ def brands_for_filter(request):
     return render(request,"products/brands_for_filter.html",{"brands":brands})
 
 #---------------------------------------------------------------------------------------
+ 
+#برای محصولات مرتبط
+
+def releated_products(request,slug):
+    product=get_object_or_404(Product,slug=slug)
+    
+    product_groups=product.product_group.all()
+    
+    r_products=Product.objects.filter(Q(is_active=True)&Q(product_group__in=product_groups)).exclude(id=product.id).distinct()[:15]
+    
+    return render(request,"products/related_product.html",{"r_products":r_products})
 
 
 
 
 
+ 
+ 
+ 
+
+
+
+
+#---------------------------------------------------------------------------------------

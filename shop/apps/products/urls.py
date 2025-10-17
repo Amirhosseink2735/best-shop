@@ -15,6 +15,7 @@ urlpatterns = [
     path("get_brands/",vv.get_brands,name="get_brands"),
     path("product_group_for_filter/",vv.product_group_for_filter,name="product_group_for_filter"),
     path("brands_for_filter/",vv.brands_for_filter,name="brands_for_filter"),
+    path("releated_products/<slug:slug>",vv.releated_products,name="releated_products"),
     
     
 ]
