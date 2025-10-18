@@ -28,6 +28,7 @@ urlpatterns = [
     path("discounts/",include("apps.discounts.urls",namespace="discounts")),
     path("fav/",include("apps.favorite.urls",namespace="fav")),
     path("war/",include("apps.warehouse.urls",namespace="war")),
+    path("search/",include("apps.search.urls",namespace="search")),
     
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

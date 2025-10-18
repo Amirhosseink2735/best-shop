@@ -261,12 +261,14 @@
         <div class="md:hidden size-8">
         </div>
         <!-- seacrh -->
+         <form action="{% url "search:results" %}">
         <div class="relative hidden md:block">
-          <input class="rounded-full text-zinc-600   bg-[#f0f0f0] px-5 py-2.5 w-80 placeholder:text-zinc-400 placeholder:text-sm focus:outline-0" type="text" placeholder="جستجو...">
-          <a href="#">
+          <input name="q" class="rounded-full text-zinc-600   bg-[#f0f0f0] px-5 py-2.5 w-80 placeholder:text-zinc-400 placeholder:text-sm focus:outline-0" type="text" placeholder="جستجو...">
+          <button type="submit">
             <img class="top-2.5 absolute left-3 size-5" src="{{media_url}}image/icons/lineicons_search-1.svg" alt="">
-          </a>
+          </button>
         </div>
+        </form>
       </div>
       <div class="hidden md:flex items-center gap-x-2 lg:gap-x-3">
         <div class="text-zinc-600 text-xs lg:text-sm">
