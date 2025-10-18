@@ -57,6 +57,7 @@
                 {% endif %}
               </div>
               {% if user.is_authenticated %}
+                {% if product.status_warehouse %}
               <div class="flex justify-between items-center">
                 <a onclick="add_to_shop_cart({{product.id}},1)" href="#" class="group/edit bg-primary-500 hover:bg-primary-400 text-white flex justify-center items-center text-xs md:text-sm mx-auto gap-x-2 px-5 md:px-2.5 py-2.5 rounded-xl shadow-lg transition-all">
                   <svg class="stroke-white size-5 md:size-6" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -67,6 +68,11 @@
                   افزودن به سبد خرید
                 </a>
               </div>
+                {% else %}
+                      <div class="flex justify-between items-center">
+                        <span style="color:red; text-decoration:underline solid red; font-size:20px;">ناموجود</span>
+                      </div>                
+                {% endif %}
               {% else %}
               <div class="flex justify-between items-center">
                 <a href="#" class="group/edit bg-primary-500 hover:bg-primary-400 text-white flex justify-center items-center text-xs md:text-sm mx-auto gap-x-2 px-5 md:px-2.5 py-2.5 rounded-xl shadow-lg transition-all">

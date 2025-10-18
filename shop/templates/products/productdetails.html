@@ -191,11 +191,16 @@
               </div>
             </div>
             {% if user.is_authenticated %}
+              {% if product.status_warehouse %}
             <button onclick="add_to_shop_cart({{product.id}},0)"
               class="hidden lg:block mx-auto cursor-pointer w-full px-2 py-3 text-sm bg-gradient-to-bl from-primary-500 to-primary-400 hover:opacity-90 transition text-gray-100 rounded-lg">
               افزودن به سبد خرید
             </button>
-            {% else %}
+              {% else %}
+              <span style="color:red; text-decoration:underline solid red; font-size:20px;">ناموجود</span>
+
+              {% endif %}
+          {% else %}
             <button 
               class="hidden lg:block mx-auto cursor-pointer w-full px-2 py-3 text-sm bg-gradient-to-bl from-primary-500 to-primary-400 hover:opacity-90 transition text-gray-100 rounded-lg">
                 برای خرید ابتدا وارد شوید 

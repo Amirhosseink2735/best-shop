@@ -47,6 +47,7 @@
                   
                 <div class="flex justify-between items-center">
                   {% if user.is_authenticated %}
+                    {% if item.status_warehouse %}
                   <a href="#"  onclick="add_to_shop_cart({{item.id}},1)"
                     class="group/edit bg-primary-500 hover:bg-primary-400 px-5 md:px-2.5 py-2.5 rounded-xl shadow-lg transition-all">
                     <svg class="stroke-white" width="24" height="24"
@@ -63,6 +64,10 @@
                         stroke="#" stroke-width="1.5" />
                     </svg>
                   </a>
+                    {% else %}
+                      <span style="color:red; text-decoration:underline solid red; font-size:20px;">ناموجود</span>
+                    {% endif %}
+
                   {% else %}
                   <a href="{% url "main:index" %}"  
                     class="group/edit bg-primary-500 hover:bg-primary-400 px-5 md:px-2.5 py-2.5 rounded-xl shadow-lg transition-all">

@@ -16,7 +16,7 @@ class WarehousesType(models.Model):
 class Warehouses(models.Model):
     warehouses_type=models.ForeignKey(WarehousesType,on_delete=models.CASCADE,related_name="warehouses",verbose_name="انبار")
     user_registred=models.ForeignKey(Customuser,on_delete=models.CASCADE,related_name="warehouseuser_registered",verbose_name="کسی که پبت کردع")
-    product=models.ForeignKey(Product,on_delete=models.CASCADE,related_name="earehouse_products",verbose_name="کالا")
+    product=models.ForeignKey(Product,on_delete=models.CASCADE,related_name="wearehouse_products",verbose_name="کالا")
     qty=models.IntegerField(verbose_name="تعداد")
     price=models.IntegerField(verbose_name="قیمت واحد",null=True,blank=True)
     registered_data=models.DateTimeField(auto_now_add=True,verbose_name="تاریخ ثبت")
@@ -27,3 +27,4 @@ class Warehouses(models.Model):
     class Meta:
         verbose_name='انبار'
         verbose_name_plural="انبارها"
+        

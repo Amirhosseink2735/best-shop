@@ -10,3 +10,4 @@ class WarehousesTyoeAdmin(admin.ModelAdmin):
 class WarehousesAdmin(admin.ModelAdmin):
     list_display=("product","price","qty","warehouses_type","registered_data")
 #-------------------------------------------------------------------
+

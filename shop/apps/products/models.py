@@ -105,6 +105,25 @@ class Product(models.Model):
         user=request.user
         status=self.favorite_product.filter(favorite_user_id=user.id).exists()
         return status
+    
+    
+    def status_warehouse(self):
+        c_buy=self.wearehouse_products.filter(warehouses_type_id=1).count()
+        c_sell=self.wearehouse_products.filter(warehouses_type_id=2).count()
+        
+        sum1=0
+        if c_buy!=None:
+            sum1=c_buy
+            
+        sum2=0
+        if c_sell!=None:
+            sum2=c_sell
+        status=c_buy-c_sell    
+
+        return status
+            
+        
+        
         
             
         
