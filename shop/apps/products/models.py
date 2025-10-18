@@ -49,7 +49,7 @@ class Feature(models.Model):
         verbose_name="ویزگی"
         verbose_name_plural="ویزگی ها"
 
-    
+from middlewares.middlewares import RequestMiddleware      
 class Product(models.Model):
     product_name=models.CharField(max_length=500,verbose_name="نام کالا")
     description=models.TextField(blank=True,null=True,verbose_name="توضیحات کالا")
@@ -98,6 +98,14 @@ class Product(models.Model):
         d_price=self.price-(self.price*discount/100)
 
         return d_price
+    
+    def status_favorite(self):
+        request=RequestMiddleware(get_response=None)
+        request=request.thread_local.current_request    
+        user=request.user
+        status=self.favorite_product.filter(favorite_user_id=user.id).exists()
+        return status
+        
             
         
             

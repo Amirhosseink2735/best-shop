@@ -20,9 +20,21 @@
         <div class="grid grid-cols-2 lg:grid-cols-3 gap-3">
             {% for product in products %}
           <div class="p-2 md:p-4 hover:border-transparent hover:shadow-lg transition-shadow rounded-3xl border border-zinc-100 relative">
-            <a href="#">
-              <svg class="absolute right-2 top-2 bg-white hover:bg-primary-500 hover:fill-white transition-all rounded-full p-2 border border-zinc-300 size-9" xmlns="http://www.w3.org/2000/svg" width="" height="" fill="#000000" viewBox="0 0 256 256"><path d="M178,32c-20.65,0-38.73,8.88-50,23.89C116.73,40.88,98.65,32,78,32A62.07,62.07,0,0,0,16,94c0,70,103.79,126.66,108.21,129a8,8,0,0,0,7.58,0C136.21,220.66,240,164,240,94A62.07,62.07,0,0,0,178,32ZM128,206.8C109.74,196.16,32,147.69,32,94A46.06,46.06,0,0,1,78,48c19.45,0,35.78,10.36,42.6,27a8,8,0,0,0,14.8,0c6.82-16.67,23.15-27,42.6-27a46.06,46.06,0,0,1,46,46C224,147.61,146.24,196.15,128,206.8Z"></path></svg>
-            </a>
+                       {% if user.is_authenticated %}  
+              {% if product.status_favorite %}
+              <a onclick="wishlist({{product.id}})" style="color:red; font-size:10px; text-decoration:underline solid 1px;" href="#">
+      
+                      به لیست علاقه مندی ها اضافه شده است 
+              </a>
+              {% else %}
+              <a href="#" onclick="wishlist({{product.id}})">
+                <svg id="product-{{ product.id }}" class="absolute right-2 top-2 bg-white hover:bg-primary-500 hover:fill-white transition-all rounded-full p-2 border border-zinc-300 size-9" xmlns="http://www.w3.org/2000/svg" width="" height="" fill="#000000" viewBox="0 0 256 256"><path d="M178,32c-20.65,0-38.73,8.88-50,23.89C116.73,40.88,98.65,32,78,32A62.07,62.07,0,0,0,16,94c0,70,103.79,126.66,108.21,129a8,8,0,0,0,7.58,0C136.21,220.66,240,164,240,94A62.07,62.07,0,0,0,178,32ZM128,206.8C109.74,196.16,32,147.69,32,94A46.06,46.06,0,0,1,78,48c19.45,0,35.78,10.36,42.6,27a8,8,0,0,0,14.8,0c6.82-16.67,23.15-27,42.6-27a46.06,46.06,0,0,1,46,46C224,147.61,146.24,196.15,128,206.8Z"></path></svg>
+              </a>
+
+              {% endif %}
+            {% else %}
+
+            {% endif %}
             <a href="{% url "products:product_details" slug=product.slug %}" class="image-box mb-6 block py-10">
               <img class="max-w-28 md:max-w-40 mx-auto" src="{{media_url}}{{product.image_name}}"alt="" />
             </a>

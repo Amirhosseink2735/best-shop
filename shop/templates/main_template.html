@@ -15,7 +15,26 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
 
+<script>
+function wishlist(product_id) {
+            
+            $.ajax({
+            type:"GET",
+            url:"/fav/user_favorite/",
+            data:{
+              product_id:product_id,
 
+            },
+            success: function(res) {
+        
+              alert(res);
+
+            },
+    });
+    }
+    
+
+</script>
 
 
 

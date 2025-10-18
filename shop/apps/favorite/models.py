@@ -2,21 +2,6 @@ from django.db import models
 from apps.products.models import Product
 from apps.accounts.models import Customuser
 from django.core.validators import MinValueValidator,MaxValueValidator
-class Scoring(models.Model):
-    product=models.ForeignKey(Product,on_delete=models.CASCADE,related_name="scoring_product",verbose_name="کالا")
-    scoring_user=models.ForeignKey(Customuser,on_delete=models.CASCADE,related_name="scorinf_user1",verbose_name="امتیاز دهنده")
-    registerdate=models.DateTimeField(auto_now_add=True,verbose_name="تاریخ درج")
-    score=models.PositiveIntegerField(validators=[MinValueValidator(0),MaxValueValidator(5)],verbose_name="امتیاز")
-    
-    
-    def __str__(self):
-        return f"{self.product} - {self.scoring_user}"
-    
-    
-    class Meta:
-        verbose_name="امتیاز"
-        verbose_name_plural="امتیازات"
-        
 
 
 
