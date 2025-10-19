@@ -56,15 +56,15 @@ class Show_AllProduct(View):
         if brand_listid:
             products=products.filter(Q(brand__id__in=brand_listid))
             
-        mojod=request.GET.get("mojod")
-        #بعد بخش انبار داری درستش کن 
         
-    
+        mojod=request.GET.get("mojod")
+        if mojod=="1":
+            products = [product for product in products if product.status_warehouse()]
+          
         context={
             "products":products,
             "min_price":min_price,
-            "max_price":max_price,
-            
+            "max_price":max_price, 
         }
         
         
@@ -182,7 +182,7 @@ class products_with_Discount(View):
                            
         
     
-
+#-----------------------------------------------------------------------------------------
 
 
 
