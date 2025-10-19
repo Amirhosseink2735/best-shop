@@ -1,0 +1,48 @@
+    <div class="px-2 md:px-12">
+      <div class="swiper heroSlider rounded-2xl md:rounded-4xl relative">
+        <div class="swiper-wrapper">
+            {% for slider in sliders %}
+          <a href="{% url "products:product_details" slug=slider.product.slug %}" class="swiper-slide">
+            <img class="w-full h-60 md:h-96 object-cover object-bottom" src="{{media_url}}{{slider.image_name}}" alt="">
+          </a>
+          {% endfor %}
+        </div>
+        <svg class="absolute -left-2 rotate-180 top-14 z-10 w-auto hidden md:block" width="76" height="285" viewBox="0 0 76 285" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g filter="url(#filter0_d_6_41)">
+              <path d="M70 275V10C70 86 14 91.0878 14 142.752C14 194.416 70 201 70 275Z" fill="white"></path>
+          </g>
+          <defs>
+              <filter id="filter0_d_6_41" x="0" y="0" width="76" height="285" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                  <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+                  <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"></feColorMatrix>
+                  <feOffset dx="-4"></feOffset>
+                  <feGaussianBlur stdDeviation="5"></feGaussianBlur>
+                  <feComposite in2="hardAlpha" operator="out"></feComposite>
+                  <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08 0"></feColorMatrix>
+                  <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_6_41"></feBlend>
+                  <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_6_41" result="shape"></feBlend>
+              </filter>
+          </defs>
+        </svg>
+        <svg class="absolute -right-2 top-14 z-10 w-auto hidden md:block" width="76" height="285" viewBox="0 0 76 285" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g filter="url(#filter0_d_6_41)">
+              <path d="M70 275V10C70 86 14 91.0878 14 142.752C14 194.416 70 201 70 275Z" fill="white"></path>
+          </g>
+          <defs>
+              <filter id="filter0_d_6_41" x="0" y="0" width="76" height="285" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                  <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+                  <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"></feColorMatrix>
+                  <feOffset dx="-4"></feOffset>
+                  <feGaussianBlur stdDeviation="5"></feGaussianBlur>
+                  <feComposite in2="hardAlpha" operator="out"></feComposite>
+                  <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08 0"></feColorMatrix>
+                  <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_6_41"></feBlend>
+                  <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_6_41" result="shape"></feBlend>
+              </filter>
+          </defs>
+        </svg>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>

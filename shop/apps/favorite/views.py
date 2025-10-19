@@ -26,7 +26,8 @@ def user_favorite(request):
 #یراس اسلایدر 
 def show_sliders(request):
     sliders=Slider.objects.filter(Q(is_active=True))[:6]
-    return render(request,"sliders/show_sliders.html",{"slders":sliders})
+    print
+    return render(request,"sliders/show_sliders.html",{"sliders":sliders})
     
     
 
