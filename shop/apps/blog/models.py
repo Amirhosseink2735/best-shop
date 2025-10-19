@@ -4,8 +4,6 @@ from apps.accounts.models import Customuser
 from apps.products.models import Product
 
 
-
-
 #------------------------------------------------------------------------------
 
 class Blog(models.Model):
