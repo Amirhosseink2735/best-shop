@@ -1,5 +1,5 @@
 from django.shortcuts import render,get_object_or_404
-from .models import Favorite
+from .models import Favorite,Slider
 from apps.products.models import Product
 from django.http import HttpResponse
 from django.db.models import Q
@@ -21,6 +21,15 @@ def user_favorite(request):
     else:
         Favorite.objects.get(Q(product_id=product_id)).delete()
         return HttpResponse("از لیست علاقه مندی ها حذف شد ")
+    
+#--------------------------------------------------------------------------------
+#یراس اسلایدر 
+def show_sliders(request):
+    sliders=Slider.objects.filter(Q(is_active=True))[:6]
+    return render(request,"sliders/show_sliders.html",{"slders":sliders})
+    
+    
+
     
 
     
