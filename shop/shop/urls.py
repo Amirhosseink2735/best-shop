@@ -29,6 +29,7 @@ urlpatterns = [
     path("fav/",include("apps.favorite.urls",namespace="fav")),
     path("war/",include("apps.warehouse.urls",namespace="war")),
     path("search/",include("apps.search.urls",namespace="search")),
+    path("blog/",include("apps.blog.urls",namespace="blog")),
     
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

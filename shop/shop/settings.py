@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "apps.favorite.apps.FavoriteConfig",
     "apps.warehouse.apps.WarehouseConfig",
     "apps.search.apps.SearchConfig",
+    "apps.blog.apps.BlogConfig",
 ]
 
 MIDDLEWARE = [
