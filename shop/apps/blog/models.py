@@ -37,7 +37,7 @@ class Blog(models.Model):
     register_date=models.DateTimeField(auto_now_add=True,verbose_name="زمان درج")
     published_date=models.DateTimeField(auto_now=True,verbose_name="تاریخ انتشار")
     slug=models.SlugField(null=True,blank=True,max_length=200)
-    blog_group=models.ForeignKey(BlogGroup,verbose_name="والد مقاله",on_delete=models.CASCADE,related_name="blog_group",null=True,blank=True)
+    blog_group=models.ManyToManyField(BlogGroup,verbose_name="والد مقاله",related_name="blog_group1")
     
     def __str__(self):
         return f"{self.blog_name} - {self.product}"

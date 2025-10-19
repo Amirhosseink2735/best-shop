@@ -1,5 +1,5 @@
 from django.shortcuts import render,get_object_or_404
-from .models import Blog
+from .models import Blog,BlogGroup
 from django.db.models import Q
 from django.views import View
 
@@ -25,7 +25,10 @@ class BlogDetails(View):
 #-----------------------------------------------------
 #مقالات مرتبط
 def related_blogs(request,slug):
-    pass
+    blog=Blog.objects.get(slug=slug)
+    blog_groups=blog.blog_group.all()
+    r_blogs=Blog.objects.filter(Q(is_active=True)&Q(blog_group__in=blog_groups)).exclude(id=blog.id).distinct()[:3]
+    return render(request,"blog/related_blogs.html",{"r_blogs":r_blogs})
 
     
 
