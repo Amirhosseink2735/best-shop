@@ -2,6 +2,7 @@ from django.shortcuts import render,get_object_or_404,redirect
 from django.views import View
 from django.db.models import Q,Count
 from .models import Product,ProductGroup,ProductGallery,ProductFeature,Brand
+from apps.discounts.models import DiscountBasket,DiscountBasketDetails
 
 #---------------------------------------------------
 
@@ -159,14 +160,29 @@ def releated_products(request,slug):
     return render(request,"products/related_product.html",{"r_products":r_products})
 
 
-
-
-
- 
- 
- 
-
-
-
-
 #---------------------------------------------------------------------------------------
+
+#برای دستبه بندی گروها در هدر 
+
+def header_product_group(request):
+    product_groups=ProductGroup.objects.filter(Q(is_active=True)).annotate(count=Count("products_of_group"))\
+        .order_by("-count")[:6]
+        
+    return render(request,"products/header_product_group.html",{"product_groups":product_groups})
+
+
+#-----------------------------------------------------------------------------------------
+
+#برای تخفیف دارها
+from django.utils import timezone
+class products_with_Discount(View):
+    def get(self,request):
+        products=Product.objects.filter(Q(is_active=True)).order_by("-register_date")[:6]
+        return render(request,"products/product_with_discount.html",{"products":products})
+                           
+        
+    
+
+
+
+

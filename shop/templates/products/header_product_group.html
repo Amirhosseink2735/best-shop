@@ -1,0 +1,235 @@
+      <ul class="hidden md:flex gap-x-5 xl:gap-x-8">
+        <div class="relative inline-block group">
+          <a href="#" class="pt-3 flex gap-x-2 items-center group relative">
+            <img class="mb-2 size-4" src="{{media_url}}image/icons/category.svg" alt="">
+            <li class="relative text-zinc-600 text-sm group-hover:text-primary-500 transition pb-2
+              after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] 
+              after:bg-primary-500 after:scale-x-0 after:origin-right after:transition-transform after:duration-300 
+              group-hover:after:scale-x-100">
+              دسته بندی ها
+            </li>
+            <svg class="group-hover:rotate-180 transition-all duration-300 fill-zinc-600 mb-2 group-hover:fill-primary-500" xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="#000000" viewBox="0 0 256 256">
+              <path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path>
+            </svg>
+          </a>
+          <div id="dropdown-menu" class="absolute z-10 right-0 mt-2 md:w-2xl lg:w-4xl xl:w-7xl h-fit bg-white p-5 shadow-lg rounded-3xl flex opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+            <ul class="w-1/4 rounded-2xl bg-white drop-shadow-custom flex flex-col gap-y-3 p-3">
+              {% for product_group in product_groups %}
+                <li class="category-item group/cat flex items-center gap-x-1 text-sm rounded-lg px-4 py-3 text-gray-600 hover:text-primary-500 cursor-pointer active-category" data-category="cat1">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path class="stroke-gray-600 group-hover/cat:stroke-primary-500 transition" d="M15.25 2.75H8.75C7.09315 2.75 5.75 4.09315 5.75 5.75V18.25C5.75 19.9069 7.09315 21.25 8.75 21.25H15.25C16.9069 21.25 18.25 19.9069 18.25 18.25V5.75C18.25 4.09315 16.9069 2.75 15.25 2.75Z" stroke="" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path class="stroke-gray-600 group-hover/cat:stroke-primary-500 transition" d="M11 17.75H13" stroke="" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                {{product_group.group_title}}
+              </li>
+              {% endfor %}
+            </ul>
+            <div class="w-2/3 p-4 grid grid-cols-2 xl:grid-cols-3 gap-y-5 gap-x-10" id="subcategory-container">
+              <div>
+                <a href="#" class="flex gap-x-2 items-center mb-5">
+                  <div class="w-fit min-w-fit text-primary-500 text-sm hover:text-primary-700 transition">
+                    گوشی موبایل
+                  </div>
+                  <div class="w-full h-0.5 border-t border-dashed border-primary-500/30">
+                  </div>
+                </a>
+                <ul class="pr-4 flex flex-col gap-y-3 text-xs mb-3">
+                  <li>
+                    <a href="#" class=" text-zinc-500 hover:text-zinc-700 transition">
+                      سامسونگ
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class=" text-zinc-500 hover:text-zinc-700 transition">
+                      شیائومی
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class=" text-zinc-500 hover:text-zinc-700 transition">
+                      آیفون
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class=" text-zinc-500 hover:text-zinc-700 transition">
+                      هاوائی
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class=" text-zinc-500 hover:text-zinc-700 transition">
+                      اچ تی سی
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class=" text-zinc-500 hover:text-zinc-700 transition">
+                      ال جی
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class=" text-zinc-500 hover:text-zinc-700 transition">
+                      سونی
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <a href="#" class="flex gap-x-2 items-center mb-5">
+                  <div class="w-fit min-w-fit text-primary-500 text-sm hover:text-primary-700 transition">
+                    گوشی موبایل
+                  </div>
+                  <div class="w-full h-0.5 border-t border-dashed border-primary-500/30">
+                  </div>
+                </a>
+                <ul class="pr-4 flex flex-col gap-y-3 text-xs mb-3">
+                  <li>
+                    <a href="#" class=" text-zinc-500 hover:text-zinc-700 transition">
+                      سامسونگ
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class=" text-zinc-500 hover:text-zinc-700 transition">
+                      شیائومی
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class=" text-zinc-500 hover:text-zinc-700 transition">
+                      آیفون
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class=" text-zinc-500 hover:text-zinc-700 transition">
+                      هاوائی
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class=" text-zinc-500 hover:text-zinc-700 transition">
+                      اچ تی سی
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class=" text-zinc-500 hover:text-zinc-700 transition">
+                      ال جی
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class=" text-zinc-500 hover:text-zinc-700 transition">
+                      سونی
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <a href="#" class="flex gap-x-2 items-center mb-5">
+                  <div class="w-fit min-w-fit text-primary-500 text-sm hover:text-primary-700 transition">
+                    گوشی موبایل
+                  </div>
+                  <div class="w-full h-0.5 border-t border-dashed border-primary-500/30">
+                  </div>
+                </a>
+                <ul class="pr-4 flex flex-col gap-y-3 text-xs mb-3">
+                  <li>
+                    <a href="#" class=" text-zinc-500 hover:text-zinc-700 transition">
+                      سامسونگ
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class=" text-zinc-500 hover:text-zinc-700 transition">
+                      شیائومی
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class=" text-zinc-500 hover:text-zinc-700 transition">
+                      آیفون
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class=" text-zinc-500 hover:text-zinc-700 transition">
+                      هاوائی
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class=" text-zinc-500 hover:text-zinc-700 transition">
+                      اچ تی سی
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class=" text-zinc-500 hover:text-zinc-700 transition">
+                      ال جی
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class=" text-zinc-500 hover:text-zinc-700 transition">
+                      سونی
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <a href="#" class="flex gap-x-2 items-center mb-5">
+                  <div class="w-fit min-w-fit text-primary-500 text-sm hover:text-primary-700 transition">
+                    گوشی موبایل
+                  </div>
+                  <div class="w-full h-0.5 border-t border-dashed border-primary-500/30">
+                  </div>
+                </a>
+                <ul class="pr-4 flex flex-col gap-y-3 text-xs mb-3">
+                  <li>
+                    <a href="#" class=" text-zinc-500 hover:text-zinc-700 transition">
+                      سامسونگ
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class=" text-zinc-500 hover:text-zinc-700 transition">
+                      شیائومی
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class=" text-zinc-500 hover:text-zinc-700 transition">
+                      آیفون
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class=" text-zinc-500 hover:text-zinc-700 transition">
+                      هاوائی
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class=" text-zinc-500 hover:text-zinc-700 transition">
+                      اچ تی سی
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class=" text-zinc-500 hover:text-zinc-700 transition">
+                      ال جی
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class=" text-zinc-500 hover:text-zinc-700 transition">
+                      سونی
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="{% url "products:product_with_discount" %}" class="pt-1 flex gap-x-2 items-center group relative">
+          <img class="mb-2 size-4.5" src="{{media_url}}image/icons/discount.svg" alt="">
+          <li class="relative text-zinc-600 text-sm group-hover:text-primary-500 transition pb-2
+            after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] 
+            after:bg-primary-500 after:scale-x-0 after:origin-right after:transition-transform after:duration-300 
+            group-hover:after:scale-x-100">
+            تخقیف دار ها
+          </li>
+        </a>
+
+        <a href="#" class="pt-1 flex gap-x-2 items-center group relative">
+          <li class="relative text-zinc-600 text-sm group-hover:text-primary-500 transition pb-2
+            after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] 
+            after:bg-primary-500 after:scale-x-0 after:origin-right after:transition-transform after:duration-300 
+            group-hover:after:scale-x-100">
+            وبلاگ
+          </li>
+        </a>
+
+
+      </ul>
