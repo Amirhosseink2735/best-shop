@@ -222,14 +222,27 @@
           </li>
         </a>
 
-        <a href="#" class="pt-1 flex gap-x-2 items-center group relative">
+        <a href="{% url "blog:show_blogs" %}" class="pt-1 flex gap-x-2 items-center group relative">
           <li class="relative text-zinc-600 text-sm group-hover:text-primary-500 transition pb-2
             after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] 
             after:bg-primary-500 after:scale-x-0 after:origin-right after:transition-transform after:duration-300 
             group-hover:after:scale-x-100">
             وبلاگ
           </li>
+
         </a>
+        {% if user.is_authenticated %}
+        <a href="" class="pt-1 flex gap-x-2 items-center group relative">
+          <li class="relative text-zinc-600 text-sm group-hover:text-primary-500 transition pb-2
+            after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] 
+            after:bg-primary-500 after:scale-x-0 after:origin-right after:transition-transform after:duration-300 
+            group-hover:after:scale-x-100">
+            پنل کاربری
+          </li>
+        </a>
+        {% else %}
+
+        {% endif %}
 
 
       </ul>

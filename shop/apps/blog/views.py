@@ -35,11 +35,15 @@ def related_blogs(request,slug):
 #نمایش تمای مقالات 
 class Show_blogs(View):
     def get(self,request):
-        blogs=Blog.objects.filter(Q(is_active=True)).order_by("-published_date")[:5]
+        blogs=Blog.objects.filter(Q(is_active=True))[:7]
         return render(request,"blog/show_blogs.html",{"blogs":blogs})
 
 
-
+#-----------------------------------------------------------------
+#برای جدیدترین بلاگ ها
+def new_blogs(request):
+    blogs=Blog.objects.filter(Q(is_active=True)).order_by("-published_date")[:15]
+    return render(request,"blog/new_blogs.html",{"blogs":blogs})
 
 
 
