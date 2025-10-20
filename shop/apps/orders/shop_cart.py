@@ -25,6 +25,8 @@ class shopcart:
         self.count = len(self.shop_cart.keys())
         self.session.modified = True
     
+    def __len__(self):
+        return sum(int(item["qty"]) for item in self.shop_cart.values())    
     
     def delete_from_shop_cart(self, product):
         product_id = str(product.id)

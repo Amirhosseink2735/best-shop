@@ -1,6 +1,6 @@
     
   {% load humanize %}
-
+{% if shop_carts %}
 <main class="mt-0 md:mt-8">
 
   <nav class="flex items-center gap-1 md:gap-5 w-full md:w-10/12 md:mx-auto">
@@ -166,5 +166,6 @@
     </div>
   </div>
 </main>
-
-
+{% else %}
+      <h1 style="color:red; font-size:50px; margin:100px; text-decoration:underline solid red;">سبد خرید شما خالی است.</h1>
+{% endif %}
