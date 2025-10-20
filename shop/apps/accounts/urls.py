@@ -10,5 +10,5 @@ urlpatterns = [
     path("main_user_panel/",vv.MainUserPanel.as_view(),name="main_user_panel"),
     path("show_main_panel/",vv.show_main_panel,name="show_main_panel"),
     path("show_favorite/",vv.show_favorite,name="show_favorite"),
-  
+
 ]

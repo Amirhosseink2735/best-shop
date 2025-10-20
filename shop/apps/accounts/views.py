@@ -99,3 +99,4 @@ def show_favorite(request):
     return render(request,"accounts/show_favorite.html",{"fav_products":fav_products})
            
 #---------------------------------------------------------------------
+
