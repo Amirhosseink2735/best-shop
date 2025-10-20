@@ -7,7 +7,8 @@ urlpatterns = [
     path("mobile_number1/",vv.mobile_number1,name="mobile_number1"),
     path("get_active_code/",vv.get_active_code,name="get_active_code"),
     path("logout_user/",vv.logout_user,name="logout_user"),
-
-    
-    
+    path("main_user_panel/",vv.MainUserPanel.as_view(),name="main_user_panel"),
+    path("show_main_panel/",vv.show_main_panel,name="show_main_panel"),
+    path("show_favorite/",vv.show_favorite,name="show_favorite"),
+  
 ]
