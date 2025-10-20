@@ -8,6 +8,7 @@ from django.contrib.auth import login,logout,authenticate
 from django.contrib import messages
 from apps.orders.models import Order,OrderDetails
 from apps.favorite.models import Favorite
+from .forms import PersonalDetailsForm
 
 #------------------------------------------------------
 #کلاس برای گرفتن شماره موبایل 
@@ -99,4 +100,63 @@ def show_favorite(request):
     return render(request,"accounts/show_favorite.html",{"fav_products":fav_products})
            
 #---------------------------------------------------------------------
+#برای نمایش اطلاعات کاربر در گنل کاربری 
+class Personal_Details(View):
+    def get(self,request):
+        user=request.user
+        initial_dict={
+            "name":user.name,
+            "family":user.family,
+            "mobile_number":user.mobile_number,
+            "email":user.email
+        }
+        form=PersonalDetailsForm(initial=initial_dict)
+        
+        return render(request,"accounts/personal_details.html",{"form":form})
+    
 
+#---------------------------------------------------------------------
+#گرفتن اطلاعات و ذخیره 
+def save_personal_data(request):
+    form=PersonalDetailsForm(request.POST)
+    gender1=request.POST.get("gender")
+    print(gender1)
+    user=request.user
+    if form.is_valid():
+        cd=form.cleaned_data
+        try:
+            customer=Customer.objects.get(user=user)
+            customer.phone_number=cd["mobile_number"]
+            customer.save()
+            if gender1=="1":
+                user.gender=True
+            else:
+                user.gender=False
+            user.mobile_number=cd["mobile_number"]
+            user.name=cd["name"]
+            user.family=cd["family"]
+            user.email=cd["email"]
+            user.save()
+        except:
+            if gender1=="1":
+                user.gender=True
+            else:
+                user.gender=False
+            user.mobile_number=cd["mobile_number"]
+            user.name=cd["name"]
+            user.family=cd["family"]
+            user.email=cd["email"]
+            user.save()           
+    
+    
+    return redirect("main:index")
+           
+    
+
+
+    
+    
+    
+    
+    
+    
