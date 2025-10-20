@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="fa" dir="rtl" class="scroll-smooth">
+<head>
+ <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="{{media_url}}image/fav.png">
+
+  <link rel="stylesheet" href="{% static "assets/css/main.css" %}">
+
+  <title>{% block title %}پنل کاربری{% endblock title %}</title>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+</head>
+
+<body class="max-w-[1700px] mx-auto bg-zinc-100 flex flex-col min-h-screen relative">
+  
+  
+  
+  
+  <div class="w-full lg:w-[83%] mr-auto flex flex-col min-h-screen">
+    <!-- header -->
+    {% include "partials/user_panel_header.html" %}
+    {% block content %}
+    
+    {% endblock content %}
+
+    
+	
+
+    
+	
+    {% include "partials/user_panel_footer.html" %}
+
+  </div>
+
+</body>
+
+<script src="{% static "assets/js/swiper.min.js" %}"></script>
+<script src="{% static "assets/js/sliders.js" %}"></script>
+<script src="{% static "assets/js/nouislider.min.js" %}"></script>
+<script src="{% static "assets/js/main.js" %}"></script>
+
+</html>
