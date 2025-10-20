@@ -12,4 +12,5 @@ urlpatterns = [
     path("show_favorite/",vv.show_favorite,name="show_favorite"),
     path("personal_details/",vv.Personal_Details.as_view(),name="personal_details"),
     path("save_data/",vv.save_personal_data,name="save_data"),
+    path("delete_favorite_user_panel/<slug:slug>",vv.delete_favorite_user_panel,name="delete_favorite_user_panel"),
 ]

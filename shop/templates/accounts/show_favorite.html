@@ -22,7 +22,10 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3 xl:gap-4">
           {% for item in fav_products %}
             <div class="shiny my-2 p-2 md:p-4 hover:border-transparent hover:shadow-lg transition-shadow rounded-3xl border border-zinc-200">
-
+              <a href="{% url "accounts:delete_favorite_user_panel" slug=item.product.slug %}" 
+                class="absolute top-2 left-2 text-red-500 bg-white rounded-full w-6 h-6 flex items-center justify-center shadow-md hover:bg-red-50">
+                ✕
+              </a>
             <a href="{{item.product.get_absolute_url}}" class="image-box mb-6 block py-10">
               <img class="max-w-40 mx-auto" src="{{media_url}}{{item.product.image_name}}" alt="" />
             </a>

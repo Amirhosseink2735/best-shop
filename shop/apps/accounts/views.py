@@ -152,7 +152,14 @@ def save_personal_data(request):
     return redirect("main:index")
            
     
-
+#--------------------------------------------------------------------------------
+#برای حذف از علاقه مندی ها در پنل کاربری 
+from apps.products.models import Product
+def delete_favorite_user_panel(request,slug):
+    product=get_object_or_404(Product,slug=slug)
+    Favorite.objects.get(Q(favorite_user=request.user)&Q(product=product)).delete()
+    return redirect("accounts:show_favorite")
+    
 
     
     
